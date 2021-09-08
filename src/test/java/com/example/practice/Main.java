@@ -1,10 +1,41 @@
+package com.example.practice;
+
 public class Main {
     public static void main(String[] args) {
-        String h1=new String("22")+new String("1");//¶Ñ 22¡¢1¡¢221£¬¶Ñ-³£Á¿³Ø£º£¨jdk6Ê±,22¡¢1Á½×Ö·û´®£»jdk7Ê±,¶Ñ22¡¢1´®µÄÒıÓÃ£©
-        h1.intern();// ¶Ñ221Ìí¼Ó¸ø ³£Á¿³Ø£º£¨jdk6Ê±£¬221×Ö·û´®¸ø³£Á¿³Ø£»jdk7Ê±£¬¶Ñ221´®µÄÒıÓÃ¸ø³£Á¿³Ø£©
-        String h2="221"; // ´ËÊ±£¬³£Á¿³ØÓĞ221£¬ÓÚÊÇ£ºh2£¨jdk6Ö¸Ïò³£Á¿³Ø221×Ö·û´®µÄÒıÓÃ£¬jdk7½èÓÉ³£Á¿³ØÖ¸Ïò¶Ñ221×Ö·û´®µÄÒıÓÃ £©
+//        String h1=new String("22")+new String("1");//å † 22ã€1ã€221ï¼Œå †-å¸¸é‡æ± ï¼šï¼ˆjdk6æ—¶,22ã€1ä¸¤å­—ç¬¦ä¸²ï¼›jdk7æ—¶,å †22ã€1ä¸²çš„å¼•ç”¨ï¼‰
+//        h1.intern();// å †221æ·»åŠ ç»™ å¸¸é‡æ± ï¼šï¼ˆjdk6æ—¶ï¼Œ221å­—ç¬¦ä¸²ç»™å¸¸é‡æ± ï¼›jdk7æ—¶ï¼Œå †221ä¸²çš„å¼•ç”¨ç»™å¸¸é‡æ± ï¼‰
+//        String h2="221"; // æ­¤æ—¶ï¼Œå¸¸é‡æ± æœ‰221ï¼Œäºæ˜¯ï¼šh2ï¼ˆjdk6æŒ‡å‘å¸¸é‡æ± 221å­—ç¬¦ä¸²çš„å¼•ç”¨ï¼Œjdk7å€Ÿç”±å¸¸é‡æ± æŒ‡å‘å †221å­—ç¬¦ä¸²çš„å¼•ç”¨ ï¼‰
+//
+//        System.out.println("h1å’Œh2 å¼•ç”¨åœ°å€æ˜¯å¦ç›¸åŒï¼š"+(h1 == h2));//resultï¼šjdk6 falseï¼›jdk7 true
+//        System.out.println("h1å’Œh2 å€¼æ˜¯å¦ç›¸åŒï¼š"+h1.equals(h2));//resultï¼štrue
+//
+//        boolean test = "a"==null;
+//        System.out.println("test:"+test);
 
-        System.out.println("h1ºÍh2 ÒıÓÃµØÖ·ÊÇ·ñÏàÍ¬£º"+(h1 == h2));//result£ºjdk6 false£»jdk7 true
-        System.out.println("h1ºÍh2 ÖµÊÇ·ñÏàÍ¬£º"+h1.equals(h2));//result£ºtrue
+
+        Thread t = new Thread(){
+            @Override
+            public void run(){
+                try {
+                    Thread.sleep(1000L);
+                    System.out.println(System.currentTimeMillis());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                pong();
+            }
+        };
+        t.run();
+        try {
+            Thread.sleep(1000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(System.currentTimeMillis());
+        System.out.println("ping");
+
     }
+    static void pong(){
+        System.out.println("pong");
+    };
 }

@@ -1,4 +1,4 @@
-package com.example.practice.pattern.create.prototype;
+package com.example.practice.pattern.creational.prototype;
 
 import lombok.*;
 

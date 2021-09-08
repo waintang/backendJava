@@ -1,7 +1,6 @@
-package com.example.practice.pattern.create.prototype;
+package com.example.practice.pattern.creational.prototype;
 
 import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import org.springframework.beans.BeanUtils;
 
 /**
