@@ -1,10 +1,6 @@
 package com.example.practice.ionio.io;
 
-import com.sun.xml.internal.messaging.saaj.util.CharWriter;
-
 import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.nio.charset.Charset;
 
 /**
@@ -12,8 +8,9 @@ import java.nio.charset.Charset;
  */
 public class IoTest {
     public static void main(String[] args) throws IOException {
-        // 0、默认字符集
+        // 0、默认字符集、文件测试
         charsetTest();
+        fileTest();
 //        PrintStream printStream = System.out;
         // 1、System.out 替换 默认流
 //        FileOutputStream fdOut = new FileOutputStream("twp.log");
@@ -23,10 +20,10 @@ public class IoTest {
 //        System.setOut(new PrintStream(new BufferedOutputStream(fdOut2, 128), true));
 //        System.setOut(printStream);
 
-        //2、字节流
+        //2、字节组流
 //         byteArrayTest();
 
-        //3、字符流
+        //3、字符组流
 //        charArrayTest();
 //        File file = new File("");
 
@@ -37,12 +34,37 @@ public class IoTest {
 //        combinePushbackTest();
 
         // 6、字符流
-        readerWriterTest();
+//        readerWriterTest();
+
+        // 7、RandomAccessFile 随机操作文件
+//        randomAccessFileTest();
+
+        // 8、RandomAccessFile 随机操作文件（插入、但不覆盖）
+//        randomAccessFileInsertNoCoverTest();
+        // 9、其它流 测试
+//        specialStreamTest();
     }
 
 
     private static void charsetTest() {
         System.out.println("默认字符集:" + Charset.defaultCharset());
+    }
+
+    private static void fileTest(){
+        // -1 创建文件夹
+        File file = new File("TWP22/ttwwpp");
+        try {
+            System.out.println(file.getCanonicalPath()); //E:\_github\waintang\backendJava\TWP2
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(file.exists());
+        if(!file.exists()&&!file.isDirectory()){
+            file.mkdirs();
+            System.out.println("创建成功");
+        }else{
+            System.out.println("已存在");
+        }
     }
 
     private static void byteArrayTest() throws IOException {
@@ -83,7 +105,7 @@ public class IoTest {
         System.out.println("========end CharArrayReader==========");
 
         System.out.println("========start CharWriter==========");
-        CharWriter writer = new CharWriter();
+        CharArrayWriter writer = new CharArrayWriter();
         writer.write("我是中文！".toCharArray());
         char[] writeChars = writer.toCharArray();
         writer.flush();
@@ -195,5 +217,93 @@ public class IoTest {
         }
     }
 
+    // RandomAccessFile 随机操作文件
+    private static void randomAccessFileTest(){
+        try(RandomAccessFile randomAccessFile = new RandomAccessFile(".\\randomAccessFileTest.txt","rw")) {
+            char char0 = randomAccessFile.readChar();
+            System.out.println(char0);
+            long filePointer = randomAccessFile.getFilePointer();
+            System.out.println(filePointer);
+            randomAccessFile.seek(3);
+            // 覆盖了位置3 的符号
+            randomAccessFile.write('k');
+
+            // 读取剩余的 字符行
+            String string = randomAccessFile.readLine();
+            System.out.println(string);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // RandomAccessFile 随机操作文件（插入、但不覆盖）
+    private static void randomAccessFileInsertNoCoverTest() {
+
+        // 0、需要临时文件 保存 插入点后续字符串
+        File tempFile = null;
+        try {
+            tempFile = File.createTempFile("temp",".txt");
+            System.out.println(tempFile.getName());//temp6118859074246846355.txt
+            System.out.println(tempFile.getPath());//C:\Users\TWP\AppData\Local\Temp\temp6118859074246846355.txt
+            tempFile.delete();
+            //虚拟机关闭时，自动删除
+            tempFile.deleteOnExit();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try(RandomAccessFile randomAccessFile = new RandomAccessFile(".\\randomAccessFileTest.txt","rw");
+            FileOutputStream fileOutputStream = new FileOutputStream(tempFile);
+            FileInputStream fileInputStream = new FileInputStream(tempFile);) {
+
+            //1、插入点
+            randomAccessFile.seek(3);
+            long filePointer = randomAccessFile.getFilePointer();
+
+            // 2、备份 插入点 后续字符串
+            byte[] bytes = new byte[20];
+            int flag = randomAccessFile.read(bytes);
+            if(flag != -1){
+                fileOutputStream.write(bytes);
+                flag = randomAccessFile.read(bytes);
+            }
+            fileOutputStream.flush();
+            // 2、在 插入点 插入
+            randomAccessFile.seek(filePointer);
+            randomAccessFile.write("特定字符串".getBytes());
+
+            //3、还原插入点后 字符串
+            int readFlag = fileInputStream.read(bytes);
+            if(readFlag != -1){
+                randomAccessFile.write(bytes);
+                readFlag = fileInputStream.read(bytes);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 其它流 测试
+    private static void specialStreamTest(){
+        try(StringReader stringBuffer = new StringReader("Mary had 1 little lamb...")){
+            StreamTokenizer tokenizer = new StreamTokenizer(stringBuffer);
+            while(tokenizer.nextToken() != StreamTokenizer.TT_EOF){
+                if(tokenizer.ttype == StreamTokenizer.TT_WORD) {
+                    System.out.println(tokenizer.sval);
+                } else if(tokenizer.ttype == StreamTokenizer.TT_NUMBER) {
+                    System.out.println(tokenizer.nval);
+                } else if(tokenizer.ttype == StreamTokenizer.TT_EOL) {
+                    System.out.println();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

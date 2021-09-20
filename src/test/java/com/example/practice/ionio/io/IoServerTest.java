@@ -35,8 +35,9 @@ public class IoServerTest {
                 while(!"Bye".equals(line)){
                     System.out.println(line);
 //                    socket.getOutputStream().write(("已收到消息："+line).getBytes("UTF-8"));
-                    PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(),"UTF-8")),true);
-                    pw.println("已收到消息："+line);
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(),"UTF-8"));
+                    bufferedWriter.write("已收到消息："+line+"\r\n");
+                    bufferedWriter.flush();
                     line = bufferedReader.readLine();
                 }
                 socket.close();
