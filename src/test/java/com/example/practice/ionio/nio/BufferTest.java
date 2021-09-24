@@ -25,7 +25,7 @@ import java.nio.channels.FileChannel;
  *          rewind()重读、mark() & reset()标记/恢复position、equals()相等、compareTo()比较
  *
  */
-public class BufferMain {
+public class BufferTest {
 
     //基于ChannelMain例子、完善代码
     public static void main(String[] args) {

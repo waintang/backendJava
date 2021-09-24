@@ -1,11 +1,8 @@
 package com.example.practice.algorithm;
 
-import com.sun.deploy.util.ArrayUtil;
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import org.apache.commons.lang.ArrayUtils;
 
 import java.util.*;
-import java.util.regex.Pattern;
 
 public class StringTest {
     public static void main(String[] args) {

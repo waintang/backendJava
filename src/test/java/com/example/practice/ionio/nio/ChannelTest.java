@@ -16,7 +16,7 @@ import java.nio.channels.FileChannel;
  * ServerSocketChannel
  * DatagramChannel（用在UDP连接）
  */
-public class ChannelMain {
+public class ChannelTest {
 
     public static void main(String[] args) {
 //        testChannel();
