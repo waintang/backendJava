@@ -12,6 +12,8 @@ import java.util.Set;
  *
  * 生产环境 一般怎么用 ServerSocketServer、Selector？
  * 答：一般用多线程、用在spring项目启动监听的时候
+ *
+ * 按我理解：还没考虑  1、SocketChannel 没有用上多线程  2、还没考虑 设计可拓展的 socket业务处理逻辑
  */
 public class SelectorProTest {
     public static void main(String[] args) {
@@ -54,7 +56,7 @@ public class SelectorProTest {
                     Iterator<SelectionKey> iterator = selectionKeys.iterator();
                     while(iterator.hasNext()){
                         SelectionKey selectionKey = iterator.next();
-                        //曾犯错：少写remove()，将随机报错NullPointerException、堆内存移除
+                        //曾犯错：少写remove()，将随机报错NullPointerException、堆内存溢出
                         iterator.remove();
                         // 曾犯错：建议 原生SelectionKey 传递下去，而非 selectionKey.channel()！ （因为 SelectionKey 本身还带有其它信息、功能）
 //                        SelectableChannel selectableChannel = selectionKey.channel();
