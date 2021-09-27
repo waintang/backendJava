@@ -78,7 +78,7 @@ public class SelectorProTest {
         }
 
         private static void register(SelectionKey selectionKey) throws IOException {
-            ServerSocketChannel serverSocketChannel = (ServerSocketChannel)selectionKey.channel();
+//            ServerSocketChannel serverSocketChannel = (ServerSocketChannel)selectionKey.channel(); // 按我理解： 此serverSocketChannel和外层主 ServerSocketChannel对象是同一个！
             SocketChannel socketChannel = serverSocketChannel.accept();
             socketChannel.configureBlocking(false);
             socketChannel.register(selector,SelectionKey.OP_READ);
@@ -100,7 +100,8 @@ public class SelectorProTest {
             String rtnResult = "自定义回复消息";
             // 收到请求数据后、处理、注册回写事件
 //            socketChannel.register(selector,SelectionKey.OP_WRITE,rtnResult);
-            socketChannel.register(selector,SelectionKey.OP_WRITE);
+//            socketChannel.register(selector,SelectionKey.OP_WRITE); // 按我理解： 除了这种写法，还能写成：selectionKey.interestOps(SelectionKey.OP_WRITE);
+            selectionKey.interestOps(SelectionKey.OP_WRITE);
             selectionKey.attach(rtnResult);// 必须在register之后
         }
 
