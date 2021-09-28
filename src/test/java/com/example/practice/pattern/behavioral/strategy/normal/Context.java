@@ -1,6 +1,7 @@
 package com.example.practice.pattern.behavioral.strategy.normal;
 
 import com.alibaba.fastjson.JSON;
+import com.example.practice.pattern.behavioral.strategy.DoubleIntOperation;
 
 /**
  * 上下文类

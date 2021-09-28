@@ -1,5 +1,8 @@
 package com.example.practice.pattern.behavioral.strategy.normal;
 
+import com.example.practice.pattern.behavioral.strategy.AddOperation;
+import com.example.practice.pattern.behavioral.strategy.DivideOperation;
+
 /**
  * 一般的，仅考虑策略模式
  */

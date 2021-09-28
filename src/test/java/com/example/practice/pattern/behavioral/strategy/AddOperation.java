@@ -1,4 +1,4 @@
-package com.example.practice.pattern.behavioral.strategy.normal;
+package com.example.practice.pattern.behavioral.strategy;
 
 public class AddOperation implements DoubleIntOperation {
 
