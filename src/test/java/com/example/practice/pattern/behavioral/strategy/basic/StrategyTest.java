@@ -1,4 +1,4 @@
-package com.example.practice.pattern.behavioral.strategy.normal;
+package com.example.practice.pattern.behavioral.strategy.basic;
 
 import com.example.practice.pattern.behavioral.strategy.AddOperation;
 import com.example.practice.pattern.behavioral.strategy.DivideOperation;
