@@ -1,4 +1,4 @@
-package com.example.practice.pattern.design;
+package com.example.practice.pattern;
 
 import org.junit.platform.commons.logging.LoggerFactory;
 
