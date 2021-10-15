@@ -1,4 +1,4 @@
-package com.example.practice.pattern.structural.observer.customer;
+package com.example.practice.pattern.behavioral.observer.customer;
 
 import java.util.ArrayList;
 import java.util.List;

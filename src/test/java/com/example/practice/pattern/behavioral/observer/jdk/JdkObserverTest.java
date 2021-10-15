@@ -1,4 +1,4 @@
-package com.example.practice.pattern.structural.observer.jdk;
+package com.example.practice.pattern.behavioral.observer.jdk;
 
 /**
  * java提供了java.util.Observable 和 java.util.Observer

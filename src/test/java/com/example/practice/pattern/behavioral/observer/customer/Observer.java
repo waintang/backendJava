@@ -1,4 +1,4 @@
-package com.example.practice.pattern.structural.observer.customer;
+package com.example.practice.pattern.behavioral.observer.customer;
 
 public abstract class Observer {
 
