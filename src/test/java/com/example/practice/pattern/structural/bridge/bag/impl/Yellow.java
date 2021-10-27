@@ -1,4 +1,4 @@
-package com.example.practice.pattern.structural.bridge.bug.impl;
+package com.example.practice.pattern.structural.bridge.bag.impl;
 
 public class Yellow implements Color {
     @Override

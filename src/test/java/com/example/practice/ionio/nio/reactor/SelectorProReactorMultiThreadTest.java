@@ -127,7 +127,7 @@ public class SelectorProReactorMultiThreadTest {
 
         private void read() {
             if(selectionKey.isReadable()){
-                //TODO bug：实际运行时，这里会反复运行，但客户端不受影响、无感知（问题同 ()->doWrite() ）
+                //TODO bag：实际运行时，这里会反复运行，但客户端不受影响、无感知（问题同 ()->doWrite() ）
                 Future future = executorService.submit(()->doRead());
                 future.isDone();
                 // 此连接 重新更改关注事件 成： 写事件

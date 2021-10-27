@@ -1,4 +1,6 @@
-package com.example.practice.pattern.structural.decorator.bianshen;
+package com.example.practice.pattern.structural.decorator.bianshen.decorator;
+
+import com.example.practice.pattern.structural.decorator.bianshen.component.Morrigan;
 
 /**
  * 抽象装饰器（此处 用的是 类，不是抽象类）

@@ -1,5 +1,8 @@
 package com.example.practice.pattern.structural.decorator.defined;
 
+/**
+ * 具体构件
+ */
 public class ConcreteComponent extends Component {
 
     public ConcreteComponent(){

@@ -1,5 +1,11 @@
 package com.example.practice.pattern.structural.decorator.bianshen;
 
+import com.example.practice.pattern.structural.decorator.bianshen.component.Morrigan;
+import com.example.practice.pattern.structural.decorator.bianshen.component.Original;
+import com.example.practice.pattern.structural.decorator.bianshen.decorator.Changer;
+import com.example.practice.pattern.structural.decorator.bianshen.decorator.Girl;
+import com.example.practice.pattern.structural.decorator.bianshen.decorator.Succubus;
+
 /**
  * Morrigan / Component 抽象构件（接口）
  * Original / ConcreteComponent 具体构件/主体（实现 抽象构件）

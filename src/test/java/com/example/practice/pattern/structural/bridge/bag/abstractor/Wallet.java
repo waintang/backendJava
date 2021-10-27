@@ -1,6 +1,6 @@
-package com.example.practice.pattern.structural.bridge.bug.abstractor;
+package com.example.practice.pattern.structural.bridge.bag.abstractor;
 
-import com.example.practice.pattern.structural.bridge.bug.impl.Color;
+import com.example.practice.pattern.structural.bridge.bag.impl.Color;
 
 public class Wallet extends Bag {
 
@@ -9,7 +9,7 @@ public class Wallet extends Bag {
     }
 
     @Override
-    String getName() {
+    public String getName() {
         return "手包，颜色："+color.getColor();
     }
 }

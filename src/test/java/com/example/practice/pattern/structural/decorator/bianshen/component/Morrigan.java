@@ -1,4 +1,4 @@
-package com.example.practice.pattern.structural.decorator.bianshen;
+package com.example.practice.pattern.structural.decorator.bianshen.component;
 
 /**
  * 抽象构件角色：莫莉卡

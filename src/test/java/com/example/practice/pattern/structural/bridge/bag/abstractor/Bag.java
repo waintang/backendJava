@@ -1,6 +1,6 @@
-package com.example.practice.pattern.structural.bridge.bug.abstractor;
+package com.example.practice.pattern.structural.bridge.bag.abstractor;
 
-import com.example.practice.pattern.structural.bridge.bug.impl.Color;
+import com.example.practice.pattern.structural.bridge.bag.impl.Color;
 
 public abstract class Bag {
     protected Color color;
@@ -17,6 +17,6 @@ public abstract class Bag {
         return color;
     }
 
-    abstract String getName();
+    public abstract String getName();
 
 }
