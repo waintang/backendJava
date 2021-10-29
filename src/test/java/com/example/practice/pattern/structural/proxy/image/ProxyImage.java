@@ -1,4 +1,4 @@
-package com.example.practice.pattern.structural.proxy;
+package com.example.practice.pattern.structural.proxy.image;
 
 public class ProxyImage implements Image {
 

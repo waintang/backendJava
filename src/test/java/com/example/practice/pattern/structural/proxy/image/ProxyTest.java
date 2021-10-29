@@ -1,4 +1,4 @@
-package com.example.practice.pattern.structural.proxy;
+package com.example.practice.pattern.structural.proxy.image;
 
 /**
  * 代理模式
