@@ -4,6 +4,9 @@ import org.springframework.util.StringUtils;
 
 public class StringTest {
     public static void main(String[] args) {
+        String testSplit = "123";
+        String[] testSplitArr = testSplit.split(",");
+
         System.out.println("***************************斜杠拆分");
         String xiegangStr = "G0 01 / G11 /";
         String[] a = StringUtils.delimitedListToStringArray(xiegangStr.endsWith("/")?xiegangStr.substring(0,xiegangStr.length()-1):xiegangStr,"/");
