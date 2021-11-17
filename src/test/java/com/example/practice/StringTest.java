@@ -1,9 +1,15 @@
 package com.example.practice;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.springframework.util.StringUtils;
 
 public class StringTest {
     public static void main(String[] args) {
+        String[] aArr = ArrayUtils.EMPTY_STRING_ARRAY;
+        for(String aaa :aArr){
+            System.out.printf(aaa);
+        }
+
         String testSplit = "123";
         String[] testSplitArr = testSplit.split(",");
 
