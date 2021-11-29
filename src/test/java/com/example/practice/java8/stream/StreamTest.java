@@ -1,4 +1,4 @@
-package com.example.practice.java8;
+package com.example.practice.java8.stream;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;

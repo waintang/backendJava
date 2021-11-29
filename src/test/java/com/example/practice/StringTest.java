@@ -5,6 +5,15 @@ import org.springframework.util.StringUtils;
 
 public class StringTest {
     public static void main(String[] args) {
+
+        String strSub = "wod-我的-自定义合同行12";
+        int middleHorizonLineNum = strSub.lastIndexOf("-");
+        System.out.println(middleHorizonLineNum);
+        System.out.println(strSub.length());
+        System.out.println(strSub.substring(0,middleHorizonLineNum));
+        System.out.println(strSub.substring(middleHorizonLineNum,strSub.length()));
+        System.out.println(strSub.substring(middleHorizonLineNum,strSub.length()).startsWith("-自定义合同行"));
+
         String[] aArr = ArrayUtils.EMPTY_STRING_ARRAY;
         for(String aaa :aArr){
             System.out.printf(aaa);
