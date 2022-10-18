@@ -1,6 +1,6 @@
 package com.example.practice.algorithm;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.*;
 

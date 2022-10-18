@@ -1,6 +1,6 @@
 package com.example.practice.java8.jvm;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;

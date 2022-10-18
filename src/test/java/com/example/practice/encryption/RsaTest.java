@@ -1,6 +1,6 @@
 package com.example.practice.encryption;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.bouncycastle.openssl.EncryptionException;
 
 import javax.crypto.Cipher;

@@ -1,6 +1,6 @@
 package com.example.practice.pattern.structural.flyweight.wzq;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class WzqTest {
     static QiLou qiLou = new QiLou();

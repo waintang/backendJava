@@ -2,7 +2,7 @@ package com.example.practice;
 
 import cn.hutool.core.util.ArrayUtil;
 import com.alibaba.fastjson.JSONObject;
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;

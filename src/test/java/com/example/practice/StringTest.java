@@ -1,7 +1,7 @@
 package com.example.practice;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.util.StringUtils;
 
@@ -97,7 +97,7 @@ public class StringTest {
 // LongAdder
         boolean aBool = Strings.isEmpty(" ");
 
-        boolean bBool = org.apache.commons.lang.StringUtils.isEmpty(" ");
+        boolean bBool = org.apache.commons.lang3.StringUtils.isEmpty(" ");
 
         Boolean testBoolean = null;
         if(Boolean.TRUE.equals(testBoolean)){
