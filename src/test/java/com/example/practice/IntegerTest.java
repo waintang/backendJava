@@ -5,6 +5,11 @@ import java.math.BigDecimal;
 
 public class IntegerTest {
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+        // 拆箱 注意 null
+        int test = 0;
+        Integer testInt = null;
+        test = testInt;
+
         System.out.println("*************************** == null");
         Long testLongValue = null;
         if(null == testLongValue){

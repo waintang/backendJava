@@ -5,6 +5,10 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.commons.collections.ArrayStack;
 
 import java.math.BigDecimal;
@@ -19,6 +23,14 @@ import java.util.*;
 public class JsonTest {
 
     public static void main(String[] args) {
+        Test test = Test.builder().testStr1("testStr1-Value").testLong1(12L).build();
+        JSONObject jsonObj = JSONObject.parseObject(JSONObject.toJSONString(test));
+
+        // {} 转 dto
+        JSONObject jsonObjectBlank = JSONObject.parseObject("{}");
+        System.out.println(jsonObjectBlank);
+        // null
+        String jsonStr = JSONObject.toJSONString(null);
         LocalDate localDate = LocalDate.of(2021, 11, 26);
         System.out.println(localDate.toString());
 //        Date date = new Date(localDate);
@@ -64,5 +76,15 @@ public class JsonTest {
         if(companyInfos.stream().noneMatch(item->"twp".equals(item))){
             System.out.println("空集合也通过。");
         }
+    }
+
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Data
+    @Builder
+    static class Test{
+        private String testStr1;
+        private String testStr2;
+        private Long testLong1;
     }
 }

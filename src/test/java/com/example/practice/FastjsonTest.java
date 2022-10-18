@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,8 +25,9 @@ public class FastjsonTest {
         List<Employee> employees = new ArrayList<>();
         List<EmployeeEx> employeeExs = new ArrayList<>();
         // private的类，同类可调用
-        EmployeeEx employeeEx1 = new EmployeeEx(1l,"n1","twp","twpen",0l);
-        EmployeeEx employeeEx2 = new EmployeeEx(2l,"n2","twp2","twp2en",0l);
+        EmployeeEx employeeEx1 = new EmployeeEx(1l,"n1","twp","twpen",0l,new Date());
+        System.out.println(JSONObject.toJSONString(employeeEx1));
+        EmployeeEx employeeEx2 = new EmployeeEx(2l,"n2","twp2","twp2en",0l,new Date());
         employeeExs.add(employeeEx1);
         employeeExs.add(employeeEx2);
 
@@ -45,6 +47,7 @@ public class FastjsonTest {
         private String name;
         private String nameEn;
         private Long tenantId;
+        private Date inSchoolDate;
     }
     @Data
     @AllArgsConstructor
@@ -54,5 +57,6 @@ public class FastjsonTest {
         private String name;
         private String nameEn;
         private Long tenantId;
+        private Date inSchoolDate;
     }
 }

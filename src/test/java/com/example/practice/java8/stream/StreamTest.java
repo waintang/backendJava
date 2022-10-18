@@ -21,6 +21,9 @@ import java.util.stream.Stream;
 public class StreamTest {
 
     public static void main(String args[]){
+        Stream.of(2,3,4,5).peek(item->{Integer result = item*3;
+            System.out.println(result);
+        }).collect(Collectors.toList());
         objectToLongList();
         System.out.println(Stream.of(2,3,4,5).map((x)->x<4?x+1:x).distinct().reduce(1,(a,b)->a*b));
 

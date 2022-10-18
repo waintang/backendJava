@@ -4,6 +4,13 @@ import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) {
+
+        testCase();
+
+        Long aLong = 1L;
+        String aLongStr = aLong.toString();
+        String bString = "abc";
+        String bStringStr = bString.toString();
         // System.getProperties是jvm参数变量
         Properties properties = System.getProperties();
         // System.getenv()是宿主环境 系统变量（注意：需要重启 java子进程-如重启idea等）
@@ -45,4 +52,19 @@ public class Main {
     static void pong(){
         System.out.println("pong");
     };
+
+    public static void testCase(){
+        int i = 10;
+        switch(i){
+            case 1:
+                System.out.println("=1");
+                break;
+            case 2:case 3:
+                System.out.println("in 2,3");
+                break;
+            default:
+                System.out.println("default value");
+                break;
+        }
+    }
 }

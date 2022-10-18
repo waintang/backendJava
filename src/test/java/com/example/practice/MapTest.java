@@ -1,5 +1,6 @@
 package com.example.practice;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.*;
@@ -26,5 +27,9 @@ public class MapTest {
 
         // #############################
         Queue<String> queue = new LinkedList<>();
+        //
+        Map<String,String> map2Json = new HashMap<>();
+        map2Json.put("contractImportKey","base:batch-import:506:1664365946067");
+        System.out.println(JSONObject.toJSONString(map2Json));
     }
 }

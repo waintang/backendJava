@@ -1,10 +1,130 @@
 package com.example.practice;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.util.StringUtils;
 
+import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.stream.Collectors;
+
 public class StringTest {
+    private static String lowerFirst(String str){
+        char[] cs = str.toCharArray();
+        cs[0]+=32;
+        return String.valueOf(cs);
+    }
+    private static String upperFirst(String str){
+        char[] cs = str.toCharArray();
+        cs[0]-=32;
+        return String.valueOf(cs);
+    }
+
+
+    public static String removeTypeSuffix(String fileName) {
+        if (StringUtils.isEmpty(fileName)) {
+            return fileName;
+        } else {
+            int pointIndex = fileName.lastIndexOf(".");
+            if (pointIndex == -1) {
+                return fileName;
+            } else {
+                String suffix = fileName.substring(pointIndex);
+                int suffixIndex = fileName.indexOf(suffix);
+                return suffixIndex == -1 ? fileName.substring(0, pointIndex) : fileName.substring(0, suffixIndex);
+            }
+        }
+    }
+
     public static void main(String[] args) {
+
+        String fileName2 = "德高品牌-1-2022年度德高零售区域总经销协议 V5清洁版.doc";
+        String suffix = fileName2.substring(fileName2.lastIndexOf(".") + 1);
+        System.out.println(suffix);
+    }
+    public static void main2(String[] args) {
+
+        String fileName2 = "德高品牌-1-2022年度德高零售区域总经销协议 V5清洁版.doc";
+        String suffix = fileName2.substring(fileName2.lastIndexOf(".") + 1);
+        System.out.println(suffix);
+
+        Date originDate = new Date();
+        System.out.println(String.valueOf(originDate));
+
+        String test = "UserName";
+        test.length();
+        String[] en = new String[]{};
+        int aen = en.length;
+        System.out.println(lowerFirst(test));
+        StringBuilder errMsgBuilder = new StringBuilder();
+        String errMsg = null;
+        errMsgBuilder.append(errMsg);
+        System.out.println(errMsgBuilder.toString());
+        String errMessage = "A唐文翩，柏明Z";
+        System.out.println(errMessage.length());
+        System.out.println(errMessage.length()>7?errMessage.substring(0,7):errMessage);
+
+        System.out.println(String.valueOf(System.currentTimeMillis()));
+
+        String sourceCode = "121324.fsd.890";
+        boolean containFlag = sourceCode.contains(".");
+        String after = removeTypeSuffix(sourceCode);
+        String batchNumber = sourceCode.substring(0,sourceCode.lastIndexOf("."));
+        String ccrtNum = sourceCode.substring(sourceCode.indexOf(".")+1,sourceCode.length());
+        System.out.println(batchNumber);
+        System.out.println(ccrtNum);
+
+        String fileKey = "hcbm-contract/source-contract-file/534/ALIYUN_CLOUD/c383372b8ae64b429b80eb307b205681@ECARX-ZHHT-20211212-0010.pdf";
+        System.out.println(fileKey.substring(fileKey.lastIndexOf("@")+1,fileKey.length()));
+        // 文件名 去后缀
+        String fileName = "我是excel.xlsx";
+        Boolean containPrefix = fileName.contains(".");
+        System.out.println("是否含后缀："+containPrefix);
+        String exactFileName = fileName.substring(0,fileName.lastIndexOf("，"));
+        System.out.println("文件名："+exactFileName);
+        String addStr = "sdfsd,唐文翩";
+        System.out.println(addStr.length());
+        System.out.println(addStr.substring(0,9));
+        String blankStr = "";
+        String[] blankStrArr = blankStr.split(",");
+        for(String relBatchIdStr : blankStrArr){
+            Long.valueOf(relBatchIdStr);
+            System.out.println(relBatchIdStr);
+        }
+
+//        ArrayBlockingQueue
+// LongAdder
+        boolean aBool = Strings.isEmpty(" ");
+
+        boolean bBool = org.apache.commons.lang.StringUtils.isEmpty(" ");
+
+        Boolean testBoolean = null;
+        if(Boolean.TRUE.equals(testBoolean)){
+            System.out.println("true");
+        }
+
+        List<String> testPrint = new ArrayList<>();
+        testPrint.add("Twp;");
+        testPrint.add("Wen");
+        System.out.println(testPrint.toString());
+
+        String[] arr = new String[]{};
+        System.out.println(arr.length);
+        for(String bbb : arr){
+            System.out.println(bbb);
+        }
+
+        Boolean isEditable = null;
+        String resultErr = "";
+        resultErr += (isEditable?"没有":"有")+"编辑权限;";
+        System.out.println(resultErr);
+
+        String error = "a";
+        error+=";";
+        System.out.println(error);
+        error="@"+error;
+        System.out.println(error);
 
         String strSub = "wod-我的-自定义合同行12";
         int middleHorizonLineNum = strSub.lastIndexOf("-");
