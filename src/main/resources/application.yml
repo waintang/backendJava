@@ -1,3 +1,6 @@
 spring:
   application:
     name: htms-op-business
+logging:
+  level:
+    root: debug

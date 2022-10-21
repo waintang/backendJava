@@ -23,6 +23,7 @@ import java.net.URL;
 @RestController("testController.v1")
 @RequestMapping("/v1/{organizationId}/test")
 public class TestController {
+//    RequestMappingHandlerMapping web-mvc包必不可少
 
     private String attachmentUrl = "http://192.168.191.1:9000/twplocal-invvatinvoiceattach/0/657cbfb2c2ce4e2f84f1de2c9169fd70%4011.jpg?response-cache-control=must-revalidate%2C%20post-check%3D0%2C%20pre-check%3D0&response-expires=1627525371703&response-content-disposition=attachment%3Bfilename%2A%3DUTF-8%27%2711.jpg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minioadmin%2F20210729%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210729T022250Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=5d6a7608eb1c6e1446e299dde8245c112c7e2a32a44bc0dbd70657ee2b65b1a2";
 
