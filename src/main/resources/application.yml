@@ -1,6 +1,9 @@
 spring:
   application:
     name: htms-op-business
+  redis:
+    host: 127.0.0.1
+    password: redis1qaz@WSX
 logging:
   level:
     root: debug

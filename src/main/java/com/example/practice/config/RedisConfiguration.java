@@ -6,9 +6,9 @@ import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
-@Configuration
+//@Configuration
 public class RedisConfiguration {
-    @Bean
+//    @Bean
     public JedisConnectionFactory redisConnectionFactory() {
 
         RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("127.0.0.1", 6379);
@@ -16,7 +16,7 @@ public class RedisConfiguration {
         config.setDatabase(1);
         return new JedisConnectionFactory(config);
     }
-    @Bean
+//    @Bean
     public RedisTemplate redisTemplate(JedisConnectionFactory conn) {
 
         RedisTemplate redisTemplate = new RedisTemplate();
