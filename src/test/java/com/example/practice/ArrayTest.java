@@ -12,6 +12,8 @@ import java.util.List;
 public class ArrayTest {
     public static void main(String[] args) {
         String[] scalaArr =new String[]{};
+        testContain();
+
         scalaArr[0]="C";
         scalaArr[2]="C";
         String[] IGNORE_FIELD_NAMES =new String[]{"A","B"};
@@ -35,5 +37,10 @@ public class ArrayTest {
         List<String> ignoreFieldNameList = Arrays.asList(allArr1);
         System.out.println(ignoreFieldNameList);
 
+    }
+
+    private static void testContain(String... arr){
+        Boolean containFlag = ArrayUtils.contains(arr,"a");
+        System.out.println(containFlag);
     }
 }

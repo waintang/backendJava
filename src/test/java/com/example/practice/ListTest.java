@@ -1,11 +1,14 @@
 package com.example.practice;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 public class ListTest {
     public static void main(String[] args) {
+        Collections.emptyList().size();
+
 //        List<String> testStrList = null;
         List<String> testStrList = new ArrayList<>();
         testStrList.add("abc");

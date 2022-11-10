@@ -1,19 +1,25 @@
 package com.example.practice;
 
 import com.example.practice.utils.DateUtil;
+import org.apache.commons.lang3.time.DateUtils;
 import org.joda.time.DateTime;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.util.Date;
 
 public class DateTest {
     public static void main(String[] args) throws ParseException {
+        Date date1 = DateUtils.parseDate("20221103","yyyyMMdd");
+        //返回当前系统默认的时区
+        ZoneId zoneId = ZoneId.systemDefault();
+        //atZone()方法返回在指定时区,从该Instant生成的ZonedDateTime
+        ZonedDateTime zonedDateTime = date1.toInstant().atZone(zoneId);
+        LocalDate localDate =  zonedDateTime.toLocalDate();
 
+        Boolean bool = localDate.isBefore(LocalDate.now());
         DateTime now = DateTime.now();
         DateTime before5Day = now.minusDays(4);
         before5Day.getDayOfYear();

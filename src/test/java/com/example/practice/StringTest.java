@@ -39,6 +39,14 @@ public class StringTest {
 
     public static void main(String[] args) {
 
+        String[] explicitListValues = new String[]{"123","唐文2"};
+        long arrLen = explicitListValues.length;
+        long strLength = Arrays.stream(explicitListValues).map(item->StringUtils.hasLength(item)?item.length():0).reduce(0,(acc,x)->acc+x);
+
+        if(arrLen + strLength > 7){
+            System.out.println(">7");
+        }
+
         String fileName2 = "德高品牌-1-2022年度德高零售区域总经销协议 V5清洁版.doc";
         String suffix = fileName2.substring(fileName2.lastIndexOf(".") + 1);
         System.out.println(suffix);

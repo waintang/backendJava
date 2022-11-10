@@ -11,8 +11,9 @@ import java.util.stream.Stream;
 
 public class StreamTest {
     public static void main(String[] args) {
-        String mapStream = "[{\"contentId\":1,\"textSource\":\"null\"},{\"contentId\":2,\"textSource\":\"本地文本\"},{\"contentId\":3,\"textSource\":\"abc\"}]";
+        String mapStream = "[{\"contentId\":1,\"textSource2\":\"null\"},{\"contentId\":2,\"textSource\":\"本地文本\"},{\"contentId\":3,\"textSource\":\"abc\"}]";
         JSONArray array = JSONArray.parseArray(mapStream);
+        Boolean flag = array.stream().anyMatch(item->{JSONObject jsonObj = JSONObject.parseObject(JSONObject.toJSONString(item));return 1==jsonObj.getLong("contentId")&&Objects.nonNull(jsonObj.get("textSource"));});
         List<Long> arrayLongs = array.stream().filter(item-> Strings.isEmpty(((JSONObject) item).getString("textSource"))).map(item->((JSONObject) item).getLong("contentId")).collect(Collectors.toList());
         System.out.println(JSONObject.toJSONString(arrayLongs));
         System.out.println(!CollectionUtils.isEmpty(arrayLongs));

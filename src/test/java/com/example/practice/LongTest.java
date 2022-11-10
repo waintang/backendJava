@@ -4,6 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 
 public class LongTest {
     public static void main(String[] args) {
+        Long testStr1 = new Long("123");
+        System.out.println("testStr1:"+testStr1);
+        Long testStr2 = new Long("文青青");
         Long a = 1234567l;
         Long b = a ;
         Long c = 1234567l;

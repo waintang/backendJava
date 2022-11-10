@@ -1,7 +1,10 @@
 package com.example.practice;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.util.ReflectionUtils;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
@@ -13,8 +16,13 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class ClassTest {
-    public static void main(String[] args) throws IntrospectionException {
-        DemoClass demoClass = new DemoClass();
+    public static void main(String[] args) throws IntrospectionException, IllegalAccessException {
+        DemoClass demoClass = DemoClass.builder().longField(111L).build();
+        Object obj = demoClass;
+        Field declaredField = ReflectionUtils.findField(obj.getClass(), "longField");
+        declaredField.setAccessible(true);
+        Object value = null;
+        value = declaredField.get(obj);
 
         BeanInfo beanInfo = Introspector.getBeanInfo(demoClass.getClass());
         PropertyDescriptor[] properties = beanInfo.getPropertyDescriptors();
@@ -38,8 +46,10 @@ public class ClassTest {
         }
     }
 
+    @Builder
     @Data
     @NoArgsConstructor
+    @AllArgsConstructor
     static class DemoClass {
         private Long longField;
         private String stringField;

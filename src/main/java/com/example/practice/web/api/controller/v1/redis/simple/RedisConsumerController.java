@@ -1,4 +1,4 @@
-package com.example.practice.web.api.controller.v1.redis;
+package com.example.practice.web.api.controller.v1.redis.simple;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
