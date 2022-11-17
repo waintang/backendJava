@@ -1,9 +1,9 @@
-package com.example.practice.web.api.controller.v1.generic;
+package com.example.practice.web.generic.controller;
 
-import com.example.practice.web.api.controller.v1.generic.dto.Apple;
-import com.example.practice.web.api.controller.v1.generic.dto.Fruit;
-import com.example.practice.web.api.controller.v1.generic.dto.Generic;
-import com.example.practice.web.api.controller.v1.generic.dto.Person;
+import com.example.practice.web.generic.dto.Apple;
+import com.example.practice.web.generic.dto.Fruit;
+import com.example.practice.web.generic.dto.Generic;
+import com.example.practice.web.generic.dto.Person;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

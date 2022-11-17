@@ -1,11 +1,11 @@
-package com.example.practice.web.api.dto;
+package com.example.practice.web.redis.api.dto;
 
 /**
  * @description：测试fastJson
  * @author：tavion
  * @date：2021/5/13 15:34
  */
-public class Employee {
+public class EmployeeEx {
 
     private Long employeeId;
     private String employeeNum;

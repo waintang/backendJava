@@ -38,6 +38,15 @@ public class StringTest {
     }
 
     public static void main(String[] args) {
+        Set<String> codeSet = new HashSet<>();
+        codeSet.add("a");
+        codeSet.add("b");
+        Object[] codeArr = codeSet.toArray();
+        String codeArrStr = org.apache.commons.lang3.StringUtils.join(codeArr,",");
+//        StringUtils.
+        System.out.println(codeArrStr);
+        String codeSetStr = codeSet.stream().map(item->"\""+item+"\"").collect(Collectors.joining(",","[","]"));
+        System.out.println(codeSetStr);
 
         String[] explicitListValues = new String[]{"123","唐文2"};
         long arrLen = explicitListValues.length;

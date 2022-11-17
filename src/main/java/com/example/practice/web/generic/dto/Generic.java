@@ -1,4 +1,4 @@
-package com.example.practice.web.api.controller.v1.generic.dto;
+package com.example.practice.web.generic.dto;
 
 public class Generic<T> {
     public String getName1(T t){

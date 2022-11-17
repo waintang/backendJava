@@ -1,8 +1,7 @@
-package com.example.practice.web.api.controller.v1.redis;
+package com.example.practice.web.redis.api.controller.v1.redis;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

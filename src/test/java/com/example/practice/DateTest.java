@@ -9,9 +9,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.util.Date;
+import java.util.Objects;
 
 public class DateTest {
     public static void main(String[] args) throws ParseException {
+        new Date("99999/12/31");
         Date date1 = DateUtils.parseDate("20221103","yyyyMMdd");
         //返回当前系统默认的时区
         ZoneId zoneId = ZoneId.systemDefault();
@@ -43,5 +45,12 @@ public class DateTest {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getFinalMessage(Throwable e){
+        if(Objects.isNull(e.getCause()) ) {
+            return e.getMessage();
+        }
+        return getFinalMessage(e.getCause());
     }
 }
