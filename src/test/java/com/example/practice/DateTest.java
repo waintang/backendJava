@@ -13,6 +13,11 @@ import java.util.Objects;
 
 public class DateTest {
     public static void main(String[] args) throws ParseException {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date date22  = sdf.parse("2022-11-28"); // 抛错：java.text.ParseException：Unparseable date: "2022-11-28"
+
+
         new Date("99999/12/31");
         Date date1 = DateUtils.parseDate("20221103","yyyyMMdd");
         //返回当前系统默认的时区

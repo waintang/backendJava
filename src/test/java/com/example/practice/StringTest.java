@@ -1,5 +1,7 @@
 package com.example.practice;
 
+import cn.hutool.core.exceptions.ExceptionUtil;
+import cn.hutool.core.util.StrUtil;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.logging.log4j.util.Strings;
@@ -38,6 +40,24 @@ public class StringTest {
     }
 
     public static void main(String[] args) {
+        String str1 = "ExceptionUtil.stacktraceToOneLineString(e)";
+        String abc = StrUtil.maxLength(str1,150) ;
+//        String abc = StrUtil.sub(str1,0,10) ;
+        System.out.println(str1.length());
+        System.out.println(abc);
+        boolean bool1 = "王明亮".contains("王明");
+        System.out.println(bool1);
+        StringBuilder sb = new StringBuilder();
+        System.out.println(sb.toString());
+        String ss = "asdfasdfdf/12z(修订过）.doc";
+        String fileName1 = "12z(修订过）.doc";
+//下面就会报错
+        System.out.println(ss.replaceAll("12z（修订过）.doc", ""));
+
+        String fileName = "20221025 as副本测试变更20221025 - 副本测试变更20221025 20221025 as副本测试变更20221025 - 副本测试变更2022102520221025 as副本测试变更20221025 - 副本测试变更2022102520221025 as副";
+        System.out.println(fileName.length());
+        String[] fileNames = fileName.split("[，2]");
+        System.out.println(fileName.length());
         Set<String> codeSet = new HashSet<>();
         codeSet.add("a");
         codeSet.add("b");

@@ -6,6 +6,8 @@ import java.math.BigDecimal;
 
 public class BigDecimalTest {
     public static void main(String[] args) {
+//        ccrtPaySettDto.getPlanAmount().compareTo(tax.add(feeWithoutTax)) != 0
+
         BigDecimal item = new BigDecimal("12.167");
         BigDecimal item2= item.setScale(1, BigDecimal.ROUND_DOWN);
         System.out.println(item+"前后"+item2);
