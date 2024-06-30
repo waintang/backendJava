@@ -1,5 +1,11 @@
 package com.example.practice;
 
+import cn.hutool.core.collection.ListUtil;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class GenericTest {
     public static void main(String[] args) {
         Fruit apple = new Apple();
@@ -17,6 +23,14 @@ public class GenericTest {
         generic.getName3(apple);
         generic.getName3(banana);
         generic.getName3(person);
+
+        // ********** 泛型入参 编译时会检查参数类型
+        List strList = new ArrayList<>();
+        List<Fruit> fruitList = new ArrayList<>();
+        List<Apple> appleList = new ArrayList<>();
+        testObjectList(strList); // 原始类型
+//        testObjectList(appleList); // 会编译错误，因为Apple不等于Object
+        testFruitList(appleList); // 上界通配符
     }
 
     // 泛型类、泛型方法
@@ -40,9 +54,20 @@ public class GenericTest {
 
     }
     private static class Banana implements Fruit{
+        public Banana(){
+
+        }
 
     }
     private static  class Person {
+
+    }
+
+    public static void testObjectList(List<Object> list){
+
+    }
+
+    public static void testFruitList(List<? extends Fruit> list){
 
     }
 }

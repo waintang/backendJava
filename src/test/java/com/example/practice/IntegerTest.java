@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 
 public class IntegerTest {
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+        System.out.println("TWP:"+Integer.valueOf(1).compareTo(1)) ;
         // 拆箱 注意 null
         int test = 0;
         Integer testInt = null;

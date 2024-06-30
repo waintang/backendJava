@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class FastjsonTest {
     public static void main(String args[]){
-        String json = "[{'code':'pass'}]";
+        String json = "[{'code':'pass'},{'code':null}]";
         JSONArray jsonArray222 = JSONObject.parseArray(json);
         System.out.println(jsonArray222);
 

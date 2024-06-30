@@ -2,13 +2,18 @@ package com.example.practice;
 
 import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.util.StrUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.logging.log4j.util.Strings;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.expression.ParserContext;
 import org.springframework.util.StringUtils;
 
 import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class StringTest {
@@ -39,8 +44,73 @@ public class StringTest {
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     public static void main(String[] args) {
-        String str1 = "ExceptionUtil.stacktraceToOneLineString(e)";
+//        Boolean bool240605 = org.apache.commons.lang3.StringUtils.isAnyBlank("adf",String.valueOf(null));
+
+        String toEmails230911 = "123@qq.com,ddfsf@em.com";
+        String[] toEmailArr = toEmails230911.split("[,;]");
+
+        String str230629 = "sdfasdfasdf@手动阀手动阀";
+        String[] strArr230629 = str230629.split("@");
+
+        String str230626 = "甄零内部研发项目-技术中心-OF/OL/I16-2023年@ZLNB202300005-03";
+        String result230625 = str230626.substring(0,str230626.lastIndexOf("@"));
+
+        String contractName = "TWP";
+        String contractNumber = "";
+        String str230509 = contractName + "[" + (StringUtils.hasLength(contractNumber) ? contractNumber : " ") + "]";
+
+        String str230407 = StrUtil.padPre(12+"",3,'0');
+        String addStr230329 = "abc"+null;
+
+        List<Long> tenantIdList = Arrays.stream("".split(",")).filter(item->StringUtils.hasLength(item)).map(item->Long.valueOf(item)).collect(Collectors.toList());
+
+        StringBuilder strSb20230327 = new StringBuilder();
+        strSb20230327.append("abc");
+        strSb20230327.append(new StringBuilder());
+
+        String abc2 = "lastStatusCode = \"N\",";
+        String pattern = "[a-z]+";
+
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(abc2);
+        System.out.println(m.matches());
+
+        String tempBatchCode = "FS-2023021701@1";
+        int separatorIndex = tempBatchCode.lastIndexOf("@");
+        String batchCode = tempBatchCode.substring(0,separatorIndex);
+        String batchCode2 = tempBatchCode.substring(0,2);
+        String trueBatchCode = tempBatchCode.substring(separatorIndex+1);
+
+        String postfixStr = "abc.sdfs.docx"; // postfixStr.lastIndexOf(".")>0?postfixStr.substring(0,postfixStr.lastIndexOf(".")):postfixStr
+        String subPostfixStr = postfixStr.substring(0,postfixStr.lastIndexOf("."));
+        StringBuilder sb2 = new StringBuilder();
+        String emptyString = sb2.toString();
+        String testReg = "甄零(上海）公司";
+//        String testReg2 = testReg.replaceAll("(上海）","");
+        StringBuilder errMsgSb = new StringBuilder();
+        String errMsgStr = errMsgSb.toString();
+        String key = "base:batch-import:481:1675156768061";
+        String tenantId = key.substring(key.indexOf(":", 5) + 1, key.lastIndexOf(":"));
+        String a = "io.chor.main.CommonExcp:手动阀手动阀at dfa.sdf.(dfs...";
+        String b = a.replaceFirst("([a-zA-Z]+\\.)+[a-zA-Z]+:","");
+        Map map = JSONObject.parseObject("{\"id\":242125,\"sourceContractId\":218983,\"rootContractUuid\":\"6cbaa45881ed478a8c67efb6027913b0\",\"createSourceType\":\"CHANGE\",\"latest\":false,\"contractNumber\":\"-2022112900043\",\"contractSerialNumber\":\"HT2022112900047\",\"contractName\":\"B22112740A11哈啰-九福线缆销售合同 1\",\"companyId\":1,\"companyName\":\"上海哈啰普惠科技有限公司\",\"categoryName\":\"软件研发中心/我要付款\",\"inOutTypeCode\":\"E\",\"propertyCode\":\"ORDINARY\",\"departmentName\":\"哈啰/软件研发中心/基础技术/基础设施运维/IDC网络\",\"departmentId\":25833,\"belongingDepartmentName\":\"哈啰/软件研发中心/基础技术/基础设施运维/IDC网络\",\"belongingDepartmentId\":25833,\"startDate\":\"2022-11-29\",\"endDate\":\"2023-10-29\",\"amount\":7350.00,\"currency\":\"CNY\",\"principalName\":\"刘启\",\"principalId\":23319,\"statusCode\":\"A\",\"executeStatusCode\":\"N\",\"lastStatusCode\":\"P\",\"creationMethodCode\":\"MANUAL\",\"creator\":\"刘启\",\"creationDate\":1672826480000,\"version\":0,\"tenantId\":16,\"objectVersionNumber\":16,\"createdBy\":256793532323536896,\"categoryUuid\":\"00231e3bcac14b5d976cc24a31f4fdf4\",\"contentUuid\":\"d3e1c02022e042208fef537e262ea086\",\"applyRuleId\":250370666187067392,\"createSettleFlag\":0,\"unitCompanyId\":9579,\"categoryCode\":\"10011703\",\"lastVersionAmount\":0.00,\"totalChangeAmount\":0.00,\"approvedDate\":\"2022-12-16T15:41:24\",\"closed\":\"NO\",\"renewed\":\"NO\",\"closedBy\":0,\"textSource\":\"LOCAL\",\"submitTime\":1669710938000,\"watermarkFlag\":1,\"isCooperative\":false,\"approvalTime\":1465545899,\"approvalNumber\":1,\"workflowBusinessKey\":\"HCBM_CONTRACT:6cbaa45881ed478a8c67efb6027913b0\",\"createFrom\":\"OLD\",\"changeApprovalFlag\":false,\"invertedFlag\":\"NO\",\"sourceCreationDate\":1669710291000,\"tradingName\":\"九福科技信息技术有限公司\",\"capitalAmount\":\"柒仟叁佰伍拾元整\",\"existChange\":\"false\",\"existSync\":false,\"attributeVarchar13\":\"false\",\"attributeLongtext1\":\"机房二期建设所需耗材，单模光纤跳线，由于低于2W元采购标准，根据公司规范自行提交。在全年预算内。\",\"uuid\":\"622616934c314458bf2c4ee5b93652ce\",\"lastUpdateDate\":1673229103000,\"lastUpdatedBy\":246931501726470144,\"_token\":\"1UtcMtQqTmSqd+Hcz0TAHfA2dtwdGDbdY1ASC28hWw4+blOsCw9AzX/5SVACz82cTYvKXJw7MBVV5syqg6LMAQ==\",\"flex\":{}}",Map.class);
+
+        String str1 = "ExceptionUtil.stacktraceToOneLineString(e) ";
+        str1.replace("Exception","Excetption").replace("stack","stac2k");
+        str1.trim();
         String abc = StrUtil.maxLength(str1,150) ;
 //        String abc = StrUtil.sub(str1,0,10) ;
         System.out.println(str1.length());

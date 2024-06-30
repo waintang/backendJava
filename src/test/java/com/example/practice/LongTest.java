@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 
 public class LongTest {
     public static void main(String[] args) {
+        Long long230627 = 461550926101090304L;
+        Boolean flag230412 = Integer.valueOf(1).equals(null);
         Long testStr1 = new Long("123");
         System.out.println("testStr1:"+testStr1);
         Long testStr2 = new Long("文青青");

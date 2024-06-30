@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class ThreadTest {
     public static ThreadLocal<Map<String,Object>> threadLocal = new ThreadLocal<>();
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         // ########### Thread.interrupt中断、Thread.interrupted判断是否中断
         System.out.println("开始测试：Thread.interrupt中断、Thread.interrupted判断是否中断");
         InterruptRunnable interruptRunnable = new InterruptRunnable();
@@ -27,6 +27,7 @@ public class ThreadTest {
         new Thread(twpThread1).start();
         new Thread(twpThread2).start();
     }
+
 
     public static class InterruptRunnable implements Runnable{
 

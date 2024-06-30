@@ -1,14 +1,15 @@
 package com.example.practice;
 
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class MapTest {
     public static void main(String[] args) {
-        Map map = null;
+
+        Map map = new HashMap();
+        if (map == null) System.out.println("TWP");
         AbstractMap abstractMap = null;
         // 线程不安全，key/value均可为null
         HashMap hashMap = null;
@@ -28,8 +29,8 @@ public class MapTest {
         // #############################
         Queue<String> queue = new LinkedList<>();
         //
-        Map<String,String> map2Json = new HashMap<>();
-        map2Json.put("contractImportKey","base:batch-import:506:1664365946067");
+        Map<String, String> map2Json = new HashMap<>();
+        map2Json.put("contractImportKey", "base:batch-import:506:1664365946067");
         System.out.println(JSONObject.toJSONString(map2Json));
     }
 }

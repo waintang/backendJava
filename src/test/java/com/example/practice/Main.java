@@ -1,9 +1,41 @@
 package com.example.practice;
 
+import cn.hutool.core.bean.OptionalBean;
+import com.example.practice.utils.DateUtil;
+
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.List;
 import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) {
+        Date date2023103101 = DateUtil.str2Date("2023-08-01");
+        Date date2023103102 = DateUtil.str2Date("2023-09-01");
+        System.out.println(date2023103101.getTime());
+        System.out.println(date2023103102.getTime());
+        System.out.println(System.currentTimeMillis());
+
+
+
+        Date date20231025 = new Date(); // 1727884800
+        System.out.println(date20231025);
+        System.out.println(System.currentTimeMillis()/100);
+        date20231025.setTime(1699545600000L);
+        System.out.println(date20231025.toString());
+        if(1!=1){
+            System.out.println("a");
+        }
+//        Enum;
+//        List;
+//        Enumeration;
+        Long ts = (469499294142963712L >> 22) + 1577808000000L;
+        System.out.println("TS:"+ts);
+//        OptionalBean.ofNullable().;
+        Boolean bool230517 = true;
+        if(Boolean.TRUE.equals(bool230517)){
+            System.out.println("bool230517");
+        }
 
         testCase();
 
