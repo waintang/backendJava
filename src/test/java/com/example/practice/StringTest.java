@@ -59,6 +59,8 @@ public class StringTest {
     public static void main(String[] args) {
 //        Boolean bool240605 = org.apache.commons.lang3.StringUtils.isAnyBlank("adf",String.valueOf(null));
 
+        String httpsStartStr20240726 = "http://oc-test.onecontract-cloud.com";
+
         String toEmails230911 = "123@qq.com,ddfsf@em.com";
         String[] toEmailArr = toEmails230911.split("[,;]");
 
