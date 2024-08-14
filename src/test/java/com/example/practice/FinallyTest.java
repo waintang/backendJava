@@ -1,6 +1,9 @@
 package com.example.practice;
 
 public class FinallyTest {
+    /*
+    测试finally没catch
+    */
     public static void main(String[] args) {
         try {
             System.out.println("try一");
