@@ -57,6 +57,9 @@ public class StringTest {
 
 
     public static void main(String[] args) {
+        Long time240822 = System.currentTimeMillis();
+        String urlPath240822 = "hcbm-contract/636/HUAWEI_CLOUD/b4918b687fec463aaa31ddffb818eada@Cas.docx";
+        String fileName240822 = urlPath240822.substring(urlPath240822.lastIndexOf("/") + 1);
 //        Boolean bool240605 = org.apache.commons.lang3.StringUtils.isAnyBlank("adf",String.valueOf(null));
 
         String httpsStartStr20240726 = "http://oc-test.onecontract-cloud.com";

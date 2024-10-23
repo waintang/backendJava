@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.util.Assert;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -25,6 +26,12 @@ import java.util.stream.Collectors;
 public class JsonTest {
 
     public static void main(String[] args) {
+
+        NoSetDto noSetDto = new NoSetDto();
+//        noSetDto.setId(2000L);
+        noSetDto.updateUuid("uuidTWP");
+        Assert.isTrue(noSetDto.getId() / 100 == 2, "hesg.error.doc.download");
+
         String jsonStr240219 = "{null:\"employee\",\"1\":\"employeeid2\"}";
         JSONObject jsonObject240219 = JSONObject.parseObject(jsonStr240219);
 
@@ -119,5 +126,21 @@ public class JsonTest {
         private Date date1;
         private LocalDate localDate1;
         private T test;
+    }
+
+    static class NoSetDto{
+        private Long id ;
+        private String uuid;
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+        public void updateUuid(String uuid){
+            this.uuid = uuid;
+        }
     }
 }

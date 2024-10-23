@@ -2,9 +2,11 @@ package com.example.practice;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import io.netty.util.HashedWheelTimer;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.util.CollectionUtils;
 
+import java.io.*;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -53,4 +55,32 @@ public class StreamTest {
             return 1;
         }
     }
+
+    // 复制 InputStream 内容到一个字节数组中
+    public static byte[] copyInputStream(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = inputStream.read(buffer)) != -1) {
+            byteArrayOutputStream.write(buffer, 0, length);
+        }
+        return byteArrayOutputStream.toByteArray();
+    }
+
+    public static void printInputStreamContent(InputStream inputStream) throws IOException {
+        // 使用 BufferedReader 读取 InputStream 内容
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder stringBuilder = new StringBuilder();
+        String line;
+
+        // 按行读取
+        while ((line = reader.readLine()) != null) {
+            stringBuilder.append(line).append(System.lineSeparator());
+        }
+
+        // 打印流中的内容
+        System.out.println("InputStream Content:");
+        System.out.println(stringBuilder.toString());
+    }
+
 }
